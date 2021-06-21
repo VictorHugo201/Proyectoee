@@ -1,0 +1,183 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
+.contenedor{
+    width: 100%;
+    min-height: 100vh;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 90px  auto;
+    grid-template-rows: 50px auto;
+    grid-template-areas: "header header" 
+                         "menu contenido";
+    transition: all .3s ease;                     
+}
+
+.contenedor.active{
+    grid-template-columns: minmax(200px, 18%) auto;
+}
+
+/*-----------------------header-----------------------------------*/
+
+.header{
+    grid-area: header;
+    padding:0 20px;
+    display: grid;
+    grid-template-columns: auto 1fr auto ;
+    grid-gap: 20px;
+    justify-content: space-between; 
+    grid-template-areas:"logo busqueda iconos";  
+}
+.header .contenedor-logo {
+	grid-area: logo;
+	display: flex;
+	align-items: center;
+}
+
+
+.contenedor-logo .boton-menu{   
+    border:none;
+    padding: 10px;
+    background: none;
+    cursor: pointer;
+    font-size: 18px;
+    border-radius: 100px;
+    width: 50px;
+    height: 50px;
+    margin-right: 20px;
+}
+
+.contenedor-logo .boton-menu:hover{
+    background: #e7e7e7;
+}
+
+.contenedor-logo .logo .fas{
+    background: #fff;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 25px;
+    color: #ff0000;
+    position: relative;
+
+}
+
+.contenedor-logo .logo{
+    font-family: 'Bebas Neue', cursive;
+    font-size: 20px;
+
+}
+.header .botones-header{
+    grid-area: iconos;
+    display: flex;
+    align-items: center;
+}
+
+.header .botones-header button{
+    background: none;
+    border:none;
+    width: 40px;
+    height: 40px;
+    font-size: 25px;
+    padding: 7px 12px;
+    border-radius: 30px;
+    color: #ff0000;
+    margin-right: 20px;
+    cursor: pointer;
+}
+
+.header .botones-header button:hover{
+    background: #e7e7e7;
+}
+
+
+/*----------------------menu lateral-----------------------------*/
+.menu-lateral {
+    grid-area: menu;
+    background: #ff2828;
+    overflow: hidden;
+}
+.menu-lateral a{
+    display: block;
+    padding: 15px 35px;
+    color: #fff;
+    min-width: 800px;
+
+
+}
+.menu-lateral a:hover{
+    background: #c5c5c5;
+}
+
+.menu-lateral a.active{
+    background: #c5c5c5;
+    font-weight: bold;
+}
+
+.menu-lateral .fas{
+    color: #606060;
+    margin-right: 32px;
+    width: 20px;
+    text-align: center;
+}
+
+.menu-lateral hr{
+    margin: 18px 0;
+    border: 1px solid #dddddd;
+
+}
+
+
+/*----------------------CONTENIDO PRINCIPAL-----------------------------*/
+.main{
+    grid-area: contenido;
+    background: #f0f0f0;
+    padding: 40px;
+}
+
+.main .titulo{
+    margin-bottom: 20px;
+}
+
+.main .grid-materias{
+    display: grid;
+    grid-gap: 40px 20px;
+    grid-template-columns: repeat(4, 1fr); 
+}
+
+.main .grid-materias .materias{
+    width: 100%;
+    display: block;
+}
+
+.main .grid-materias .materias img{
+    width: 90%;
+}
+
+/*----------------------mediaquery-----------------------------*/
+@media screen and (max-width: 1200px){
+    .main .grid-materias{
+        grid-template-columns: repeat(3, 1fr) ;
+    }
+.header .contenedor-logo .logo spam{
+    display: none;
+}    
+}
+
+@media screen and (max-width: 992px){
+    .main .grid-materias{
+        grid-template-columns: repeat(2, 1fr) ;
+
+    }
+}
